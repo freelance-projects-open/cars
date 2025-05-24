@@ -1,8 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import {Link} from 'expo-router';
+import {Link, useRouter} from 'expo-router';
+import { useState } from 'react';
 
 export default function App() {
+  const router = useRouter();
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+
+  function handleLogin() {
+    // Aqui você pode adicionar lógica de autenticação
+    router.replace('/home');
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>
@@ -10,9 +20,9 @@ export default function App() {
         <Text style={{ color: '#A07A28' }}>Cars+</Text>
       </Text>
       <Text style={styles.subtitle}>Entrar</Text>
-      <TextInput style={styles.input} placeholder="Email" keyboardType="email-address" />
-      <TextInput style={styles.input} placeholder="Senha" secureTextEntry />
-      <TouchableOpacity style={styles.button}>
+      <TextInput style={styles.input} placeholder="Email" keyboardType="email-address" value={email} onChangeText={setEmail} />
+      <TextInput style={styles.input} placeholder="Senha" secureTextEntry value={senha} onChangeText={setSenha} />
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Entrar no ecompCars+</Text>
       </TouchableOpacity>
       <Link href="/register" style={[styles.button, { display: 'flex', alignItems: 'center', justifyContent: 'center' }]}>

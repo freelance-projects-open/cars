@@ -1,20 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import {Link} from 'expo-router';
+import { Link, useRouter } from 'expo-router';
+import { useState } from 'react';
 
 export default function Register() {
+  const router = useRouter();
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+
+  function handleRegister() {
+    // Aqui você pode adicionar lógica de registro
+    router.replace('/home');
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>ecomCars+</Text>
-            <Text style={styles.title}>Entrar</Text>
-      <TextInput style={styles.input} placeholder="Nome" />
-      <TextInput style={styles.input} placeholder="Email" keyboardType="email-address" />
-      <TextInput style={styles.input} placeholder="Senha" secureTextEntry />
-      <TouchableOpacity style={styles.button}>
+      <Text style={styles.title}>Registrar</Text>
+      <TextInput style={styles.input} placeholder="Nome" value={nome} onChangeText={setNome} />
+      <TextInput style={styles.input} placeholder="Email" keyboardType="email-address" value={email} onChangeText={setEmail} />
+      <TextInput style={styles.input} placeholder="Senha" secureTextEntry value={senha} onChangeText={setSenha} />
+      <TouchableOpacity style={styles.button} onPress={handleRegister}>
         <Text style={styles.buttonText}>Registrar</Text>
       </TouchableOpacity>
       <Link href="/" style={styles.button}>
-        <Text style={styles.buttonText}>Voltar</Text>
+        <Text style={styles.buttonText}>Voltar para Login</Text>
       </Link>
       <StatusBar style="auto" />
     </View>
