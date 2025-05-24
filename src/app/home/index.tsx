@@ -8,15 +8,7 @@ export default function App() {
         <Text style={{ color: '#000' }}>ecom</Text>
         <Text style={{ fontWeight: 'bold', color: '#A07A28' }}>Cars+</Text>
       </Text>
-      <Text style={styles.subtitle}>Entrar</Text>
-      <TextInput placeholder='Email' style={styles.input} />
-      <TextInput placeholder='Senha' style={styles.input} secureTextEntry={true} />
-      <Link style={styles.button} href={"/home"}>
-      <Text style={styles.button}>Entrar no ecomCars+</Text>
-      </Link>
-      <Link style={styles.button} href={"/register"}>
-        <Text style={styles.button}>Registar-me</Text>
-      </Link>
+      <Text style={styles.subtitle}>Bem-Vindo</Text>
     </View>
   );
 }

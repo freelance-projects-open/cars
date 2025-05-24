@@ -12,7 +12,9 @@ export default function App() {
       <TextInput placeholder='Nome' style={styles.input} />
       <TextInput placeholder='Email' style={styles.input} />
       <TextInput placeholder='Senha' style={styles.input} secureTextEntry={true} />
+      <Link style={styles.button} href={"/"}>
       <Text style={styles.button}>Entrar no ecomCars+</Text>
+      </Link>
     </View>
   );
 }
